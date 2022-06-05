@@ -7,12 +7,12 @@ import { AuthService, User } from '@core/authentication';
   template: `
     <div class="matero-user-panel" fxLayout="column" fxLayoutAlign="center center">
       <!-- <img class="matero-user-panel-avatar" [src]="user.avatar" alt="avatar" width="64" /> -->
-      <div class="matero-user-panel-avatar">
+      <div *ngIf="user.user_metadata" class="matero-user-panel-avatar">
         <small>
           {{ user.user_metadata.username[0]+user.user_metadata.username[1]+user.user_metadata.username[2]}}
         </small>
       </div>
-      <h4 class="matero-user-panel-name">{{ user.user_metadata.username }}</h4>
+      <h4 *ngIf="user.user_metadata" class="matero-user-panel-name">{{ user.user_metadata.username }}</h4>
       <h5 class="matero-user-panel-email">{{ user.email }}</h5>
       <div class="matero-user-panel-icons">
         <a routerLink="/profile/overview" mat-icon-button>

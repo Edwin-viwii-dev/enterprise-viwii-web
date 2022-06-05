@@ -1,0 +1,24 @@
+<page-header class="bg-cyan-400" title="Lista de tiendas"></page-header>
+
+<div>
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Filtrar tiendas</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo. Luciano" #input />
+  </mat-form-field>
+
+  <mtx-grid [data]="list" [cellTemplate]="{storeName: storeNameTpl, active: activeTpl}" [rowHover]="true" [columns]="columns"> </mtx-grid>
+
+  <ng-template #storeNameTpl let-row let-index="index" let-col="colDef">
+    <div class="store_name_align">
+      <img *ngIf="row.photoStore" class="matero-avatar" [src]="row.photoStore" width="48" alt="avatar" />
+      <span class="m-l-8 m-y-auto">{{row.storeName}}</span>
+    </div>
+  </ng-template>
+
+  <ng-template #activeTpl let-row let-index="index" let-col="colDef">
+    <mat-chip-list>
+      <mat-chip *ngIf="!row.active" color="warn" selected>Inactiva</mat-chip>
+      <mat-chip *ngIf="row.active" color="primary" selected>Activa</mat-chip>
+    </mat-chip-list>
+  </ng-template>
+</div>

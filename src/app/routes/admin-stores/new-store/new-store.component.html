@@ -1,0 +1,218 @@
+<page-header class="bg-cyan-400" title="Nueva tienda"></page-header>
+
+<div fxLayout="row wrap" class="matero-row">
+  <div class="matero-col" fxFlex="100" fxFlex.gt-xs="100" fxFlex.gt-sm="100" fxFlex.gt-md="100">
+    <mat-card>
+      <form [formGroup]="storeForm" class="form-field-full">
+        <div fxLayout="row wrap" fxLayoutGap="8px grid">
+
+          <div class="m-y-16" fxFlex="30" fxFlex.lt-md="100">
+            <mat-slide-toggle color="primary" formControlName="active">
+              Tienda activa
+            </mat-slide-toggle>
+          </div>
+
+          <div class="m-y-16" fxFlex="30" fxFlex.lt-md="100">
+            <mat-slide-toggle color="primary" formControlName="open">
+              Tienda abierta
+            </mat-slide-toggle>
+          </div>
+
+          <div class="m-y-16" fxFlex="30" fxFlex.lt-md="100">
+            <mat-slide-toggle color="primary" formControlName="censured">
+              Tienda censurada
+            </mat-slide-toggle>
+          </div>
+
+          <div fxFlex="100" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre tienda</mat-label>
+              <input matInput placeholder="Nombre tienda" formControlName="storeName" required />
+              <mat-error *ngIf="storeForm.get('storeName')?.invalid">Ingresa un nombre </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea
+                matInput
+                placeholder="Agrega una descripción corta"
+                formControlName="description"
+                required
+                rows="10"
+              ></textarea>
+              <mat-error *ngIf="storeForm.get('description')?.invalid">
+                Ingresa una descripción
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Ciudad</mat-label>
+              <mat-select formControlName="citystore" required>
+                <mat-option>-- None --</mat-option>
+                <mat-option value="Bogotá D.C">Bogotá D.C</mat-option>
+                <mat-option value="Chía">Chía</mat-option>
+                <mat-option value="Cajicá">Cajicá</mat-option>
+                <mat-option value="Funza">Funza</mat-option>
+                <mat-option value="Mosquera">Mosquera</mat-option>
+                <mat-option value="Tocancipá">Tocancipá</mat-option>
+                <mat-option value="Zipaquirá">Zipaquirá</mat-option>
+              </mat-select>
+              <mat-error *ngIf="storeForm.get('citystore')?.invalid">Elige una ciudad</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Dirección tienda</mat-label>
+              <input
+                matInput
+                placeholder="Dirección tienda"
+                formControlName="addressStore"
+                required
+              />
+              <mat-error *ngIf="storeForm.get('addressStore')?.invalid"
+                >Ingresa una dirección
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre quien atiende</mat-label>
+              <input
+                matInput
+                placeholder="Nombre quien atiende"
+                type="text"
+                formControlName="shopkeeperName"
+                required
+              />
+              <mat-error *ngIf="storeForm.get('shopkeeperName')?.invalid"
+                >Ingresa un nombre</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Teléfono tienda</mat-label>
+              <input matInput placeholder="Teléfono tienda" formControlName="phoneStore" required />
+              <mat-error *ngIf="storeForm.get('phoneStore')?.invalid"
+                >Ingresa un número de teléfono</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Dias de atención</mat-label>
+              <mat-select formControlName="attentionSchedule" multiple required>
+                <mat-option value="Lun">Lunes</mat-option>
+                <mat-option value="Mar">Martes</mat-option>
+                <mat-option value="Mier">Miercoles</mat-option>
+                <mat-option value="Jue">Jueves</mat-option>
+                <mat-option value="Vie">Viernes</mat-option>
+                <mat-option value="Sab">Sábado</mat-option>
+                <mat-option value="Dom">Domingo</mat-option>
+              </mat-select>
+              <mat-error *ngIf="storeForm.get('attentionSchedule')?.invalid">Elige al menos un dia</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="25" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <input
+                [mtxDatetimepicker]="datetimePickerInit"
+                placeholder="Hora de apertura"
+                formControlName="attentionHourInit"
+                matInput
+                required
+              />
+              <mtx-datetimepicker-toggle
+                [for]="datetimePickerInit"
+                matSuffix
+              ></mtx-datetimepicker-toggle>
+              <mtx-datetimepicker
+                #datetimePickerInit
+                type="time"
+                mode="auto"
+                startView="clock"
+                twelvehour="false"
+              >
+              </mtx-datetimepicker>
+              <mat-error *ngIf="storeForm.get('attentionHourInit')?.invalid">Elige una hora</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="25" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <input
+                [mtxDatetimepicker]="datetimePickerEnd"
+                placeholder="Hora de cierre"
+                formControlName="attentionHourEnd"
+                matInput
+                required
+              />
+              <mtx-datetimepicker-toggle
+                [for]="datetimePickerEnd"
+                matSuffix
+              ></mtx-datetimepicker-toggle>
+              <mtx-datetimepicker
+                #datetimePickerEnd
+                type="time"
+                mode="auto"
+                startView="clock"
+                twelvehour="false"
+              >
+              </mtx-datetimepicker>
+              <mat-error *ngIf="storeForm.get('attentionHourEnd')?.invalid">Elige una hora</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="40" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Categoria</mat-label>
+              <mat-select formControlName="category" required>
+                <mat-option>-- None --</mat-option>
+                <mat-option *ngFor="let category of categories" [value]="category">{{
+                  category
+                }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="storeForm.get('category')?.invalid">Elige una categoría</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="m-y-auto text-center" fxFlex="30" fxFlex.lt-md="100">
+            <mat-slide-toggle color="primary" formControlName="productsWithPhotos">
+              Productos con fotos
+            </mat-slide-toggle>
+          </div>
+
+          <div class="m-y-auto text-center" fxFlex="30" fxFlex.lt-md="100">
+            <mat-slide-toggle color="primary" formControlName="withSubCategories">
+              Productos con categorias
+            </mat-slide-toggle>
+          </div>
+        </div>
+
+        <div *ngIf="mainAlert.show" class="m-y-8" fxLayout="row" fxLayoutAlign="center center">
+          <span class="text-{{ mainAlert.color }}-400">{{ mainAlert.message }}</span>
+        </div>
+
+        <div class="m-b-16 m-t-32" fxLayout="row" fxLayoutAlign="center center">
+          <button
+            mat-raised-button
+            color="primary"
+            class="m-t-8"
+            (click)="createNewStore()"
+          >
+            Crear tienda
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

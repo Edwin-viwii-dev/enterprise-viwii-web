@@ -1,6 +1,12 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = "https://lkirkbemppopqylbnjzm.supabase.co"
-const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxraXJrYmVtcHBvcHF5bGJuanptIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY1MTA4ODc3OSwiZXhwIjoxOTY2NjY0Nzc5fQ.22QBJqEayHuL-zDGflFSjCQlBOJvYmNeJ2tx2DhLiD8"
+const supabaseUrl = "https://jgqxlgizovouoaelgveh.supabase.co"
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTQ5NTUyMCwiZXhwIjoxOTQ1MDcxNTIwfQ.Z6DYQ5iZh0eRV8vPZpuRnIBNW2XIVYbrSGGMVqabLkM"
+const options = {
+  schema: 'public',
+  autoRefreshToken: true,
+  persistSession: true,
+  detectSessionInUrl: true
+}
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, options)

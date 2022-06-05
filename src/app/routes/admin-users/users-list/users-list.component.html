@@ -1,0 +1,10 @@
+<page-header class="bg-cyan-400" title="Lista de usuarios"></page-header>
+
+<div>
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Filtrar usuarios</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo. Luciano" #input />
+  </mat-form-field>
+
+  <mtx-grid [data]="list" [cellSelectable]="false" [rowHover]="true" [columns]="columns"> </mtx-grid>
+</div>

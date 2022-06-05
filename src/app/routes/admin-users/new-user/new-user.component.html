@@ -1,0 +1,176 @@
+<page-header class="bg-cyan-400" [title]="titleComponent"></page-header>
+
+<div fxLayout="row wrap" class="matero-row">
+
+  <div *ngIf="!isNewUser && dataUser" class="matero-col" fxFlex="100" fxFlex.gt-xs="100" fxFlex.gt-sm="100" fxFlex.gt-md="100">
+    <mat-card>
+      <div class="text-center">
+        <div *ngIf="dataUser.username" class="matero-user-panel-avatar">
+          <small>
+            {{ dataUser.username[0]+dataUser.username[1]+dataUser.username[2]}}
+          </small>
+        </div>
+        <h2 class="m-t-0 m-b-8 f-w-400">{{ dataUser.username }}</h2>
+        <p class="m-t-0 m-b-8">{{ dataUser.role }}</p>
+        <p class="m-t-0 text-grey-500">{{ dataUser.email }}</p>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="matero-col" fxFlex="100" fxFlex.gt-xs="100" fxFlex.gt-sm="100" fxFlex.gt-md="100">
+    <mat-card>
+      <form [formGroup]="userForm" class="form-field-full">
+        <div fxLayout="row wrap" fxLayoutGap="8px grid">
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre completo</mat-label>
+              <input matInput placeholder="Nombre completo" formControlName="username" required />
+              <mat-error *ngIf="userForm.get('username')?.invalid">Ingresa un nombre </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Correo eléctronico</mat-label>
+              <input matInput placeholder="Correo eléctronico" formControlName="email" required />
+              <mat-error *ngIf="userForm.get('email')?.invalid"
+                >Ingresa correo eléctronico</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Tipo de documento</mat-label>
+              <mat-select formControlName="documentType" required>
+                <mat-option>-- None --</mat-option>
+                <mat-option value="CC">Cédula de ciudadanía</mat-option>
+                <mat-option value="CE">Cédula de extranjería</mat-option>
+                <mat-option value="TI">Tarjeta identidad</mat-option>
+              </mat-select>
+              <mat-error *ngIf="userForm.get('documentType')?.invalid"
+                >Elige un tipo de documento</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Número de documento</mat-label>
+              <input
+                matInput
+                placeholder="Número de documento"
+                type="number"
+                formControlName="documentNumber"
+                required
+              />
+              <mat-error *ngIf="userForm.get('documentNumber')?.invalid"
+                >Ingresa un número de documento</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Ciudad</mat-label>
+              <mat-select formControlName="city" required>
+                <mat-option>-- None --</mat-option>
+                <mat-option value="Bogotá D.C">Bogotá D.C</mat-option>
+                <mat-option value="Chía">Chía</mat-option>
+                <mat-option value="Cajíca">Cajíca</mat-option>
+                <mat-option value="Funza">Funza</mat-option>
+                <mat-option value="Mosquera">Mosquera</mat-option>
+                <mat-option value="Tocancipá">Tocancipá</mat-option>
+                <mat-option value="Zipaquirá">Zipaquirá</mat-option>
+              </mat-select>
+              <mat-error *ngIf="userForm.get('city')?.invalid">Elige una ciudad</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Dirección</mat-label>
+              <input matInput placeholder="Dirección" formControlName="address" required />
+              <mat-error *ngIf="userForm.get('address')?.invalid">Ingresa una dirección</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Rol</mat-label>
+              <mat-select formControlName="role" required>
+                <mat-option>-- None --</mat-option>
+                <mat-option value="client">Cliente</mat-option>
+                <mat-option value="store_starter">Tienda starter</mat-option>
+                <mat-option value="store_enterprise">Tienda enterprise</mat-option>
+                <mat-option value="delivery">Domiciliario</mat-option>
+                <mat-option value="admin">Administrador</mat-option>
+                <mat-option value="superadmin">Super-Administrador</mat-option>
+              </mat-select>
+              <mat-error *ngIf="userForm.get('role')?.invalid"
+                >Elige un rol</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Celular</mat-label>
+              <input
+                matInput
+                placeholder="Celular"
+                type="number"
+                formControlName="cellphone"
+                required
+              />
+              <mat-error *ngIf="userForm.get('cellphone')?.invalid">Ingresa un celular</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div *ngIf="isNewUser" fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" formControlName="password" required>
+              <mat-error *ngIf="userForm.get('password')?.invalid">
+                Ingresa una contraseña
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div *ngIf="isNewUser" fxFlex="50" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Repite la contraseña</mat-label>
+              <input matInput type="password" formControlName="confirmPassword" required>
+              <mat-error *ngIf="userForm.get('confirmPassword')?.hasError('required')">
+                Ingresa una contraseña
+              </mat-error>
+              <mat-error *ngIf="userForm.get('confirmPassword')?.hasError('confirm')">
+                Las contraseñas no coinciden
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100" fxFlex.lt-md="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Permisos</mat-label>
+              <mtx-select [items]="allPermissions" bindLabel="name" bindValue="id" [multiple]="true"
+              formControlName="permissions" required>
+              </mtx-select>
+              <mat-error>Elige al menos un permiso</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div *ngIf="mainAlert.show" class="m-y-8" fxLayout="row" fxLayoutAlign="center center">
+          <span class="text-{{mainAlert.color}}-400">{{mainAlert.message}}</span>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <button *ngIf="isNewUser" mat-raised-button color="primary" class="m-t-8" (click)="createNewUser()">Crear usuario</button>
+          <button *ngIf="!isNewUser" mat-raised-button color="primary" class="m-t-8 m-l-4 m-r-4" (click)="updateUser()">Guardar cambios</button>
+          <button *ngIf="!isNewUser" mat-raised-button color="warn" class="m-t-8 m-l-4 m-r-4">Eliminar usuario</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

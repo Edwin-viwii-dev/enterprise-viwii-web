@@ -5,8 +5,13 @@ export interface User {
   email?: string;
   user_metadata?: {
     username?: string;
-    avatar?: string;
-    roles?: any[];
+    storeId?: string;
+    documentType?: string;
+    documentNumber?: string;
+    city?: string;
+    address?: string;
+    cellphone?: string;
+    role?: any[];
     permissions?: any[];
   };
 }

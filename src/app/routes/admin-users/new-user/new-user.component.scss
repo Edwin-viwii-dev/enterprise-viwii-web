@@ -1,0 +1,15 @@
+.matero-user-panel-avatar {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50rem;
+  border: 2px solid #ffab40;
+  background-color: #26c6da;
+  margin: 10px auto;
+  small {
+    margin: auto;
+    font-weight: normal;
+    color: white;
+    font-size: 20px;
+  }
+}

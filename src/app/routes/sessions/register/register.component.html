@@ -23,8 +23,8 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Components</mat-label>
-        <mat-select formControlName="components" multiple>
+        <mat-label>Permisos</mat-label>
+        <mat-select formControlName="permissions" multiple>
           <mat-option *ngFor="let comp of componentList" [value]="comp">{{comp}}</mat-option>
         </mat-select>
       </mat-form-field>

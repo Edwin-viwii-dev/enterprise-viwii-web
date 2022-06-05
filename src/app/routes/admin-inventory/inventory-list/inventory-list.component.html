@@ -1,0 +1,30 @@
+<page-header class="bg-cyan-400" title="Lista de productos"></page-header>
+
+<div>
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Filtrar productos</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo. Luciano" #input />
+  </mat-form-field>
+
+  <mtx-grid
+    [data]="inventoryWithStores"
+    [cellTemplate]="{ productName: productNameTpl, price: priceTpl }"
+    [rowHover]="true"
+    [columns]="columns"
+  >
+  </mtx-grid>
+  <ng-template #productNameTpl let-row let-index="index" let-col="colDef">
+    <div class="store_name_align">
+      <img
+        *ngIf="row.productPhoto"
+        class="matero-avatar"
+        [src]="row.productPhoto"
+        width="48"
+      />
+      <span class="m-l-8 m-y-auto">{{ row.productName }}</span>
+    </div>
+  </ng-template>
+  <ng-template #priceTpl let-row let-index="index" let-col="colDef">
+    <span class="m-l-8 m-y-auto">${{ row.price }}</span>
+  </ng-template>
+</div>

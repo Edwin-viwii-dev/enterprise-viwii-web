@@ -40,8 +40,8 @@ export class AuthService {
     );
   }
 
-  signUp(username: string, email: string, password: string, components: any) {
-    return this.loginService.signUp(username, email, password, components).pipe(
+  signUp(email: string, password: string, userData: any) {
+    return this.loginService.signUp(email, password, userData).pipe(
       tap(token => this.tokenService.set(token)),
       map(() => this.check())
     );

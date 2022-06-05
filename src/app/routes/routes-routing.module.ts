@@ -11,6 +11,7 @@ import { Error403Component } from './sessions/403.component';
 import { Error404Component } from './sessions/404.component';
 import { Error500Component } from './sessions/500.component';
 import { AuthGuard } from '@core/authentication';
+import { MyStoreComponent } from './my-store/my-store.component';
 
 const routes: Routes = [
   {
@@ -21,9 +22,22 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'my-store', component: MyStoreComponent },
       { path: '403', component: Error403Component },
       { path: '404', component: Error404Component },
       { path: '500', component: Error500Component },
+      {
+        path: 'admin-users',
+        loadChildren: () => import('./admin-users/admin-users.module').then(m => m.AdminUsersModule),
+      },
+      {
+        path: 'admin-inventory',
+        loadChildren: () => import('./admin-inventory/admin-inventory.module').then(m => m.AdminInventoryModule),
+      },
+      {
+        path: 'admin-stores',
+        loadChildren: () => import('./admin-stores/admin-stores.module').then(m => m.AdminStoresModule),
+      },
       {
         path: 'design',
         loadChildren: () => import('./design/design.module').then(m => m.DesignModule),

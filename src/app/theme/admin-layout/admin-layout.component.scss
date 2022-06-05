@@ -132,9 +132,9 @@
 
   &.matero-navbar-side {
     .matero-toolbar {
-      border-bottom: unset;
+      border-bottom: none;
 
-      @include mat.elevation(2);
+      //@include mat.elevation(2);
     }
   }
 }
@@ -143,6 +143,7 @@
 .matero-content-width-fix {
   .matero-content-wrap {
     margin-left: variables.$sidenav-width !important;
+    padding-left: 20px;
 
     [dir='rtl'] & {
       margin-right: variables.$sidenav-width !important;
@@ -155,6 +156,6 @@
 .matero-header-white {
   .matero-toolbar,
   .matero-topmenu {
-    background-color: white;
+    background-color: #f4f8fb;
   }
 }

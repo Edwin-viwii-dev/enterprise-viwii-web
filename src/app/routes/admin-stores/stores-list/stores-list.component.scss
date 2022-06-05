@@ -1,0 +1,14 @@
+.matero-avatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50rem;
+  border: 2px solid #ffab40;
+  object-fit: cover;
+}
+
+.store_name_align {
+  align-content: center;
+  display: flex;
+  text-transform: capitalize;
+}

@@ -11,6 +11,86 @@
       }
     },
     {
+      "route": "admin-users",
+      "name": "admin-users",
+      "type": "sub",
+      "icon": "supervised_user_circle",
+      "children": [
+        {
+          "route": "users-list",
+          "name": "users-list",
+          "type": "link"
+        },
+        {
+          "route": "new-user",
+          "name": "new-user",
+          "type": "link"
+        }
+      ],
+      "permissions": {
+        "only": [
+          "ADMIN-USERS"
+        ]
+      }
+    },
+    {
+      "route": "admin-inventory",
+      "name": "admin-inventory",
+      "type": "sub",
+      "icon": "inventory",
+      "children": [
+        {
+          "route": "inventory-list",
+          "name": "inventory-list",
+          "type": "link"
+        },
+        {
+          "route": "new-inventory",
+          "name": "new-inventory",
+          "type": "link"
+        }
+      ],
+      "permissions": {
+        "only": [
+          "ADMIN-INVENTORY"
+        ]
+      }
+    },
+    {
+      "route": "admin-stores",
+      "name": "admin-stores",
+      "type": "sub",
+      "icon": "store",
+      "children": [
+        {
+          "route": "stores-list",
+          "name": "stores-list",
+          "type": "link"
+        },
+        {
+          "route": "new-store",
+          "name": "new-store",
+          "type": "link"
+        }
+      ],
+      "permissions": {
+        "only": [
+          "ADMIN-STORES"
+        ]
+      }
+    },
+    {
+      "route": "my-store",
+      "name": "my-store",
+      "type": "link",
+      "icon": "store",
+      "permissions": {
+        "only": [
+          "MY-STORE"
+        ]
+      }
+    },
+    {
       "route": "design",
       "name": "design",
       "type": "sub",
@@ -29,7 +109,7 @@
       ],
       "permissions": {
         "only": [
-          "DESIGN"
+          ""
         ]
       }
     },
@@ -259,7 +339,7 @@
       ],
       "permissions": {
         "only": [
-          "MATERIAL"
+          ""
         ]
       }
     },
@@ -309,7 +389,7 @@
         }
       ],
       "permissions": {
-        "only": "MEDIA"
+        "only": ""
       }
     },
     {
@@ -340,7 +420,7 @@
         }
       ],
       "permissions": {
-        "only": "FORMS"
+        "only": ""
       }
     },
     {
@@ -361,7 +441,7 @@
         }
       ],
       "permissions": {
-        "only": "TABLES"
+        "only": ""
       }
     },
     {
@@ -382,7 +462,7 @@
         }
       ],
       "permissions": {
-        "only": "PROFILE"
+        "only": ""
       }
     },
     {
@@ -391,7 +471,7 @@
       "type": "extTabLink",
       "icon": "extension",
       "permissions": {
-        "only": "EXTENSIONS"
+        "only": ""
       }
     },
     {
@@ -417,7 +497,7 @@
         }
       ],
       "permissions": {
-        "only": "SESSIONS"
+        "only": ""
       }
     },
     {
@@ -433,7 +513,7 @@
         }
       ],
       "permissions": {
-        "only": "HELPERS"
+        "only": ""
       }
     },
     {
@@ -480,7 +560,7 @@
         }
       ],
       "permissions": {
-        "only": "MENU"
+        "only": ""
       }
     }
   ]

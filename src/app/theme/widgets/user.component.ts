@@ -12,12 +12,12 @@ import { AuthService, User } from '@core/authentication';
       [matMenuTriggerFor]="menu"
     >
       <!-- <img class="matero-avatar" [src]="user.avatar" width="32" alt="avatar" /> -->
-      <div class="matero-avatar">
+      <div *ngIf="user && user.user_metadata" class="matero-avatar">
         <small>
           {{user.user_metadata.username[0] +user.user_metadata.username[1] +user.user_metadata.username[2]}}
         </small>
       </div>
-      <span class="matero-username" fxHide.lt-sm>{{ user.user_metadata.username }}</span>
+      <span *ngIf="user && user.user_metadata" class="matero-username" fxHide.lt-sm>{{ user.user_metadata.username }}</span>
     </button>
 
     <mat-menu #menu="matMenu">

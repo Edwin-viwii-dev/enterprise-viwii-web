@@ -1,9 +1,10 @@
 /** Override Material styles */
 
-@use '../../app/theme/style/variables';
+@use "../../app/theme/style/variables";
 
 .mat-card {
   margin-bottom: variables.$gutter;
+  border-radius: 20px !important;
 }
 
 .mat-accordion {
@@ -18,11 +19,11 @@
 .mat-checkbox,
 .mat-radio-button,
 .mat-slide-toggle {
-  margin-right: variables.$gutter * .5;
+  margin-right: variables.$gutter * 0.5;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: auto;
-    margin-left: variables.$gutter * .5;
+    margin-left: variables.$gutter * 0.5;
   }
 }
 
@@ -30,4 +31,35 @@
   .mat-form-field {
     width: 100%;
   }
+}
+
+.mat-form-field {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.mat-card, .mat-form-field{
+  font-family: "Quicksand", sans-serif;
+}
+
+.mat-drawer-content, .mat-drawer-container{
+  background-color: #f4f8fb;
+}
+
+.mat-drawer{
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.mtx-grid, .mtx-grid-layout{
+  border-radius: 20px;
+}
+
+.mat-table{
+  background: white;
+}
+
+.mtx-grid .mat-paginator {
+  border-radius: 0px 0px 20px 20px;
 }

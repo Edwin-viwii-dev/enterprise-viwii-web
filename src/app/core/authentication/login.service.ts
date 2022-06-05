@@ -22,10 +22,10 @@ export class LoginService {
     });
   }
 
-  signUp(username: string, email: string, password: string, components: any) {
-    console.log(email, password);
+  signUp(email: string, password: string, data:any) {
+    console.log(email, password, data);
     return new Observable<Token>((subscriber: any) => {
-      supabase.auth.signUp({ email, password }, { data: { username, permissions: components} }).then((result: any) => {
+      supabase.auth.signUp({ email, password }, { data }).then((result: any) => {
         if(result.error) subscriber.error(result.error)
         else subscriber.next(result.session);
       });
